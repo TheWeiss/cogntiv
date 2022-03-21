@@ -17,11 +17,11 @@ I tested enlarging this model before trying another coordinate, which made a bet
  Graphs of generalization for 96 px size from 48 are present and can be re-generated in the notebook. Generalization using this method for 100 images doesn't look great, but for few images the results are very promising.
 
 ### 2
-- Higer resolution is demonstrated using the "upsample" function, using existing models to show result.
-- I expected the dense representation to work best for interpolation, and chose 3 pairs of iamges, where only one bit in representation needs to be chanegd (like 00 and 10) and show the interpolation of them, but the results where poor.
+- **SuperResolution** Higher resolution is demonstrated using the "upsample" function, using existing models to show result.
+- **Interpolation** I expected the dense representation to work best for interpolation, and chose 3 pairs of iamges, where only one bit in representation needs to be chanegd (like 00 and 10) and show the interpolation of them, but the results where poor.
 It seems strange that it did generelize in that manner when trained on 3 imnages, but for 10 or 100 it didn't. Trying smaller networks didn't change the outcome.
 
 I didn't quite understand the selection part, because the way I tried to solve this ex. I chose the images representations. I'm not sure I understand what you ment by using the network re represent the images themselvs. because the image recieve all iamges together, from coordinated, there is no one layer that can be said to have a specific image representation. And so I don't understand the normal notation of "embedding" or image representation in this case. 
-Getting the images closer to each other in the dense representation, compared to the spatial XY coordinates, so it wont be able to get so "crazy" in between the images, like seen in this case.
-
+### 3
+An idea of mine to make the interpolation better is getting the images closer to each other in the dense representation, compared to the spatial XY coordinates, so it wont be able to get so "crazy" in between the images, like seen in this case.
 This only means changing the distance in the new subspace of image location, compared with the -1->1 scale of the pixels. hopfully not allowing the output to change so drasticallly when moving from image to image in that space.
